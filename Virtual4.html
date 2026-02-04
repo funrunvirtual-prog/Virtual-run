@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Run</title>
+
+<style>
+:root{
+  --primary:#1e88e5;
+  --bg:#f2f4f7;
+  --card:#ffffff;
+  --text:#222;
+  --muted:#666;
+}
+
+body{
+  margin:0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  text-align:center;
+}
+
+.header{
+  padding:30px 15px 10px;
+}
+
+.header img{
+  width:150px;
+  max-width:60%;
+  margin-bottom:10px;
+}
+
+h1{
+  margin:5px 0 20px;
+  font-size:24px;
+  font-weight:700;
+}
+
+.container{
+  max-width:460px;
+  margin:auto;
+  padding:10px 15px;
+}
+
+.menu{
+  display:grid;
+  gap:15px;
+}
+
+.card{
+  background:var(--card);
+  padding:18px 20px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  transition:0.2s ease;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+}
+
+.icon{
+  font-size:28px;
+}
+
+.text{
+  font-size:16px;
+  font-weight:600;
+}
+
+.footer{
+  margin:30px 0 20px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  overflow:auto;
+  z-index:99;
+}
+
+.modal-content{
+  background:white;
+  max-width:480px;
+  margin:60px auto;
+  padding:22px;
+  border-radius:18px;
+  text-align:left;
+}
+
+.modal-content h3{
+  margin-top:0;
+}
+
+.modal-content h4{
+  margin-bottom:5px;
+  color:var(--primary);
+}
+
+.modal-content p,
+.modal-content li{
+  font-size:14px;
+  line-height:1.6;
+  color:#333;
+}
+
+.close{
+  text-align:right;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Runner_in_motion.jpg" alt="Orang Lari" loading="lazy">
+  <h1>Virtual Run Event</h1>
+</div>
+
+<div class="container">
+  <div class="menu">
+
+    <div class="card" onclick="window.open('ISI_LINK_GOOGLE_FORM_DISINI')">
+      <div class="icon">📝</div>
+      <div class="text">Pendaftaran</div>
+    </div>
+
+    <div class="card" onclick="window.open('https://wa.me/6287828928601')">
+      <div class="icon">💬</div>
+      <div class="text">Admin WhatsApp</div>
+    </div>
+
+    <div class="card" onclick="openModal('panduan')">
+      <div class="icon">📘</div>
+      <div class="text">Panduan Kepesertaan</div>
+    </div>
+
+    <div class="card" onclick="openModal('syarat')">
+      <div class="icon">📄</div>
+      <div class="text">Syarat & Ketentuan</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 Virtual Run
+</div>
+
+<!-- PANDUAN -->
+<div class="modal" id="panduan">
+  <div class="modal-content">
+    <div class="close" onclick="closeModal('panduan')">✕</div>
+
+    <h3>🏃‍♂️ Panduan Kepesertaan</h3>
+    <h4>Aetletic Virtual Run</h4>
+
+    <p><b>📌 Apa itu Virtual Run?</b><br>
+    Virtual Run adalah event lari yang bisa dilakukan di mana saja dan kapan saja
+    selama periode yang ditentukan, tanpa harus berkumpul di satu lokasi.</p>
+
+    <p><b>📱 Aplikasi yang dapat digunakan:</b></p>
+    <ul>
+      <li>Strava</li>
+      <li>Garmin</li>
+      <li>Nike Run Club</li>
+      <li>Aplikasi lari lainnya</li>
+    </ul>
+
+    <p><b>📤 Media Pelaporan:</b><br>
+    Screenshot hasil lari dikirim melalui WhatsApp panitia.</p>
+
+    <p><b>🎁 Finisher akan mendapatkan:</b></p>
+    <ul>
+      <li>🏅 Medali Finisher</li>
+      <li>👕 Jersey</li>
+      <li>📜 E-Sertifikat</li>
+    </ul>
+
+    <h4>✨ Benefit Mengikuti Virtual Run</h4>
+    <p>⏱ Fleksibel lokasi & waktu<br>
+       ❤️ Mendukung gaya hidup sehat<br>
+       🎯 Tantangan & pencapaian pribadi<br>
+       🚚 Hadiah dikirim ke rumah<br>
+       👨‍👩‍👧 Untuk semua kalangan</p>
+
+    <h4>📍 Langkah Mengikuti</h4>
+    <ol>
+      <li>Isi form pendaftaran</li>
+      <li>Selesaikan pembayaran</li>
+      <li>Persiapkan aplikasi</li>
+      <li>Lari 5 KM (boleh dicicil 2x)</li>
+      <li>Kirim bukti hasil lari</li>
+      <li>Verifikasi & pengiriman racepack</li>
+    </ol>
+
+  </div>
+</div>
+
+<!-- SYARAT & KETENTUAN -->
+<div class="modal" id="syarat">
+  <div class="modal-content">
+    <div class="close" onclick="closeModal('syarat')">✕</div>
+
+    <h3>📄 Syarat & Ketentuan</h3>
+    <h4>Aetletic Virtual Run</h4>
+
+    <h4>1. Ketentuan Umum</h4>
+    <ul>
+      <li>Event ini merupakan event lari virtual yang dapat diikuti di mana saja.</li>
+      <li>Peserta mengikuti event secara mandiri dan bertanggung jawab penuh atas kondisi fisiknya.</li>
+      <li>Dengan mendaftar, peserta dianggap telah membaca dan menyetujui seluruh syarat dan ketentuan.</li>
+    </ul>
+
+    <h4>2. Pendaftaran & Kepesertaan</h4>
+    <ul>
+      <li>Pendaftaran dilakukan melalui form resmi yang disediakan panitia.</li>
+      <li>Pendaftaran dinyatakan sah setelah pembayaran dikonfirmasi.</li>
+      <li>Biaya pendaftaran yang telah dibayarkan tidak dapat dikembalikan.</li>
+    </ul>
+
+    <h4>3. Ketentuan Lari</h4>
+    <ul>
+      <li>Target jarak lari adalah 5 KM.</li>
+      <li>Lari dapat dilakukan satu kali atau dicicil maksimal 2 kali.</li>
+      <li>Lari harus dilakukan dalam periode event yang telah ditentukan.</li>
+    </ul>
+
+    <h4>4. Bukti & Verifikasi</h4>
+    <ul>
+      <li>Peserta wajib menggunakan aplikasi pencatat aktivitas lari.</li>
+      <li>Bukti berupa screenshot jarak, waktu, dan tanggal aktivitas.</li>
+      <li>Bukti dikirimkan ke WhatsApp panitia untuk proses verifikasi.</li>
+      <li>Panitia berhak menolak hasil yang tidak sesuai ketentuan.</li>
+    </ul>
+
+    <h4>5. Medali & Merchandise</h4>
+    <ul>
+      <li>Medali dan merchandise diberikan kepada peserta yang telah menyelesaikan tantangan.</li>
+      <li>Pengiriman dilakukan sesuai jadwal panitia.</li>
+      <li>Kesalahan alamat pengiriman menjadi tanggung jawab peserta.</li>
+    </ul>
+
+    <h4>6. Keselamatan & Tanggung Jawab</h4>
+    <ul>
+      <li>Peserta wajib memastikan kondisi tubuh dalam keadaan sehat.</li>
+      <li>Panitia tidak bertanggung jawab atas cedera atau kecelakaan.</li>
+    </ul>
+
+    <h4>7. Perubahan & Keputusan</h4>
+    <ul>
+      <li>Panitia berhak mengubah ketentuan apabila diperlukan.</li>
+      <li>Keputusan panitia bersifat mutlak dan tidak dapat diganggu gugat.</li>
+    </ul>
+
+  </div>
+</div>
+
+<script>
+function openModal(id){
+  document.getElementById(id).style.display='block';
+}
+function closeModal(id){
+  document.getElementById(id).style.display='none';
+}
+</script>
+
+</body>
+</html>
